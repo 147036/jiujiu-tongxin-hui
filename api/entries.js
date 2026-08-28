@@ -1,11 +1,11 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 // 数据文件路径（Vercel临时文件系统）
 const DATA_DIR = path.join(process.cwd(), '.data');
 const DATA_FILE = path.join(DATA_DIR, 'entries.json');
 
-module.exports = (req, res) => {
+export default function handler(req, res) {
   // CORS 头
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
@@ -29,4 +29,4 @@ module.exports = (req, res) => {
   } else {
     res.status(405).json({ error: 'Method not allowed' });
   }
-};
+}
