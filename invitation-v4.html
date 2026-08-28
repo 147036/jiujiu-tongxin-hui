@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>善和生态九九立德同心会 · 邀请函</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+XiaoWei&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --red: #B8322A;
+      --deep-red: #7A1F1A;
+      --gold: #C9A96E;
+      --light-gold: #E8D5B0;
+      --ink: #2C2420;
+      --paper: #FAF6F0;
+      --cream: #F3EDE0;
+    }
+
+    body {
+      font-family: 'Noto Serif SC', 'SimSun', serif;
+      background: var(--paper);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ===== 第一屏：封面 ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(160deg, #1a0f0a 0%, #2d1f15 40%, #3d2b1f 100%);
+    }
+
+    /* 多层背景图 */
+    .hero-bg-1 {
+      position: absolute;
+      inset: 0;
+      background: url('assets/cover-landscape.jpg') center/cover no-repeat;
+      filter: brightness(0.3) saturate(0.5);
+      animation: slowZoom 40s ease-in-out infinite alternate;
+    }
+
+    .hero-bg-2 {
+      position: absolute;
+      inset: 0;
+      background: url('assets/misty-mountain.jpg') center/cover no-repeat;
+      opacity: 0.15;
+      mix-blend-mode: overlay;
+      animation: slowPan 60s linear infinite;
+    }
+
+    @keyframes slowZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.15); }
+    }
+
+    @keyframes slowPan {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-50px, -30px); }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(180deg, rgba(30,15,10,0.5) 0%, rgba(30,15,10,0.2) 40%, rgba(30,15,10,0.6) 100%),
+        radial-gradient(ellipse at 50% 30%, rgba(184,50,42,0.15) 0%, transparent 60%);
+    }
+
+    /* 装饰粒子 */
+    .particles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { opacity: 0; transform: translateY(-20px) rotate(0deg); }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.7; }
+      100% { opacity: 0; transform: translateY(100vh) rotate(360deg); }
+    }
+
+    /* 飘落的叶子 */
+    .leaf {
+      position: absolute;
+      width: 8px;
+      height: 12px;
+      background: var(--gold);
+      opacity: 0;
+      border-radius: 0 50% 50% 50%;
+      transform: rotate(45deg);
+      animation: leafFall linear infinite;
+    }
+
+    @keyframes leafFall {
+      0% { opacity: 0; transform: translateY(-20px) rotate(45deg) translateX(0); }
+      10% { opacity: 0.5; }
+      90% { opacity: 0.5; }
+      100% { opacity: 0; transform: translateY(100vh) rotate(225deg) translateX(100px); }
+    }
+
+    /* 祥云 SVG 装饰 */
+    .cloud-decoration {
+      position: absolute;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .cloud-decoration.tl { top: 8%; left: -8%; }
+    .cloud-decoration.tr { top: 15%; right: -5%; }
+    .cloud-decoration.bl { bottom: 10%; left: -5%; }
+    .cloud-decoration.br { bottom: 5%; right: -8%; }
+
+    /* 山峰剪影 */
+    .mountain-silhouette {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* 印章 Logo */
+    .seal-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 28px;
+    }
+
+    .seal-ring {
+      position: absolute;
+      inset: -12px;
+      border: 1px solid rgba(201,169,110,0.4);
+      border-radius: 50%;
+      animation: ringPulse 3s ease-in-out infinite;
+    }
+
+    .seal-ring-2 {
+      position: absolute;
+      inset: -20px;
+      border: 1px solid rgba(201,169,110,0.2);
+      border-radius: 50%;
+      animation: ringPulse 3s ease-in-out infinite 1.5s;
+    }
+
+    @keyframes ringPulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.08); opacity: 0.15; }
+    }
+
+    .seal {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--red), var(--deep-red));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 44px;
+      color: #fff;
+      box-shadow: 
+        0 0 50px rgba(201,169,110,0.4),
+        inset 0 2px 15px rgba(0,0,0,0.3),
+        0 4px 20px rgba(0,0,0,0.4);
+      animation: sealAppear 0.8s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .seal::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50%;
+    }
+
+    .seal::after {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 25%;
+      width: 30%;
+      height: 20%;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      filter: blur(3px);
+    }
+
+    @keyframes sealAppear {
+      from { opacity: 0; transform: scale(0.5) rotate(-15deg); }
+      to { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+
+    .main-title {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 42px;
+      color: #fff;
+      letter-spacing: 16px;
+      text-shadow: 
+        0 2px 20px rgba(0,0,0,0.6),
+        0 0 40px rgba(201,169,110,0.2);
+      margin-bottom: 12px;
+      animation: fadeUp 0.8s ease-out 0.2s both;
+    }
+
+    .sub-title {
+      font-size: 14px;
+      color: var(--gold);
+      letter-spacing: 8px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s ease-out 0.4s both;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 0 auto 28px;
+      animation: fadeUp 0.8s ease-out 0.5s both;
+    }
+
+    .divider-line {
+      width: 100px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .divider-diamond {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    .divider-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+
+    .hero-quote {
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      line-height: 2.4;
+      letter-spacing: 2px;
+      animation: fadeUp 0.8s ease-out 0.6s both;
+    }
+
+    .hero-quote strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 滚动提示 */
+    .scroll-hint {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      letter-spacing: 3px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 30px;
+      background: linear-gradient(180deg, rgba(201,169,110,0.5), transparent);
+      margin: 8px auto 0;
+      animation: scrollLine 1.5s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(5px); }
+    }
+
+    @keyframes scrollLine {
+      0% { height: 0; opacity: 0; }
+      50% { height: 30px; opacity: 1; }
+      100% { height: 30px; opacity: 0; }
+    }
+
+    /* ===== 第二屏：活动介绍 ===== */
+    .section-about {
+      padding: 80px 24px;
+      background: var(--paper);
+      position: relative;
+    }
+
+    /* 装饰山水背景 */
+    .section-about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 250px;
+      background: url('assets/decoration-bg.jpg') center/cover no-repeat;
+      opacity: 0.05;
+      mask-image: linear-gradient(to bottom, black 30%, transparent);
+      -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent);
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 26px;
+      color: var(--red);
+      letter-spacing: 6px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    /* 路径卡片 - 横向滚动 */
+    .path-row {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 8px 4px 20px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .path-row::-webkit-scrollbar { display: none; }
+
+    .path-card {
+      flex-shrink: 0;
+      width: 85px;
+      text-align: center;
+      padding: 20px 10px;
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid var(--light-gold);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .path-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .path-card:active {
+      transform: scale(0.95);
+    }
+
+    .path-char {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 40px;
+      color: var(--red);
+      display: block;
+      line-height: 1;
+      margin-bottom: 8px;
+      text-shadow: 2px 2px 4px rgba(184,50,42,0.1);
+    }
+
+    .path-text {
+      font-size: 11px;
+      color: var(--ink);
+      opacity: 0.7;
+      line-height: 1.4;
+    }
+
+    /* 介绍卡片 */
+    .intro-card {
+      background: linear-gradient(135deg, var(--deep-red), var(--red));
+      color: #fff;
+      border-radius: 20px;
+      padding: 28px 22px;
+      margin-top: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(184,50,42,0.2);
+    }
+
+    .intro-card::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 140px;
+      height: 140px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+
+    .intro-card::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 80px;
+      height: 80px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+    }
+
+    .intro-card h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      letter-spacing: 3px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-card p {
+      font-size: 13px;
+      line-height: 2;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 插图卡片 */
+    .illustration-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .illust-card {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/3;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .illust-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .illust-card:active img {
+      transform: scale(1.1);
+    }
+
+    .illust-card .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6) 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 12px;
+    }
+
+    .illust-card .label {
+      font-size: 12px;
+      color: #fff;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 第三屏：邀约语 ===== */
+    .section-invite {
+      padding: 80px 24px;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
+      text-align: center;
+      position: relative;
+    }
+
+    /* 背景装饰图 */
+    .section-invite::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        url('assets/pavilion-view.jpg') center/cover no-repeat,
+        url('assets/temple-view.jpg') center/cover no-repeat;
+      opacity: 0.04;
+      mix-blend-mode: multiply;
+    }
+
+    .invite-badge {
+      display: inline-block;
+      padding: 8px 24px;
+      border: 1px solid var(--gold);
+      border-radius: 24px;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 4px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .invite-main-text {
+      font-size: 16px;
+      line-height: 2.6;
+      color: var(--ink);
+      position: relative;
+      z-index: 1;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .invite-main-text .highlight {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* 装饰分隔 */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 28px 0;
+      color: var(--gold);
+      font-size: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: '';
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--light-gold), transparent);
+    }
+
+    .quote-text {
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+      margin-top: 16px;
+      position: relative;
+      z-index: 1;
+      line-height: 1.8;
+    }
+
+    /* 插图展示 */
+    .invite-illustration {
+      margin-top: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .invite-illust-img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+
+    /* ===== 第四屏：报名表单 ===== */
+    .section-form {
+      padding: 70px 24px 90px;
+      background: #fff;
+      position: relative;
+    }
+
+    .section-form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--red));
+    }
+
+    /* 装饰山峰背景 */
+    .section-form::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 150px;
+      background: url('assets/misty-mountain.jpg') center/cover no-repeat;
+      opacity: 0.04;
+      mask-image: linear-gradient(to top, black 40%, transparent);
+      -webkit-mask-image: linear-gradient(to top, black 40%, transparent);
+    }
+
+    .form-wrapper {
+      max-width: 380px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-header h2 {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 24px;
+      color: var(--red);
+      letter-spacing: 6px;
+      margin-bottom: 8px;
+    }
+
+    .form-header p {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      color: var(--ink);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-label .req {
+      color: var(--red);
+      margin-left: 2px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 16px 18px;
+      border: 1px solid #E8DDD0;
+      border-radius: 12px;
+      font-size: 15px;
+      font-family: inherit;
+      background: var(--paper);
+      color: var(--ink);
+      transition: all 0.3s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--red);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(184, 50, 42, 0.08);
+    }
+
+    .form-input::placeholder { color: #C4B9A8; }
+
+    select.form-input {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23B8322A' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 18px center;
+      padding-right: 42px;
+    }
+
+    textarea.form-input { resize: vertical; min-height: 100px; }
+
+    .submit-btn {
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, var(--red), var(--deep-red));
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: inherit;
+      letter-spacing: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 6px 20px rgba(184, 50, 42, 0.3);
+      margin-top: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .submit-btn:hover::before {
+      left: 100%;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(184, 50, 42, 0.4);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .error-msg {
+      font-size: 12px;
+      color: var(--red);
+      margin-top: 6px;
+      display: none;
+    }
+
+    .form-group.error .form-input {
+      border-color: var(--red);
+      background: #FFF8F8;
+    }
+
+    .form-group.error .error-msg { display: block; }
+
+    /* 成功状态 */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .success-card {
+      background: linear-gradient(135deg, var(--deep-red), var(--red));
+      border-radius: 24px;
+      padding: 50px 32px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(184, 50, 42, 0.3);
+    }
+
+    .success-card::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 160px;
+      height: 160px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+
+    .success-card::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 100px;
+      height: 100px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 32px;
+      animation: popIn 0.5s ease-out;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0) rotate(-180deg); }
+      80% { transform: scale(1.1) rotate(10deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+
+    .success-title {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 24px;
+      margin-bottom: 12px;
+      letter-spacing: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .success-text {
+      font-size: 14px;
+      opacity: 0.9;
+      line-height: 2;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== 第五屏：底部 ===== */
+    .footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 60px 24px;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--red));
+    }
+
+    /* 山峰装饰 */
+    .footer-mountains {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: url('assets/misty-mountain.jpg') center/cover no-repeat;
+      opacity: 0.1;
+      mask-image: linear-gradient(to bottom, black 60%, transparent);
+      -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent);
+    }
+
+    .footer-logo {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 24px;
+      color: var(--gold);
+      letter-spacing: 8px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer p {
+      font-size: 12px;
+      line-height: 2.2;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 侧边页码 */
+    .page-dots {
+      position: fixed;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 100;
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(184, 50, 42, 0.25);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: var(--red);
+      height: 20px;
+      border-radius: 3px;
+    }
+
+    /* 滚动动画 */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 响应式 */
+    @media (max-width: 375px) {
+      .main-title { font-size: 34px; letter-spacing: 10px; }
+      .section-title { font-size: 22px; }
+      .path-char { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 侧边页码 -->
+  <div class="page-dots">
+    <div class="dot active" onclick="scrollToSection(0)"></div>
+    <div class="dot" onclick="scrollToSection(1)"></div>
+    <div class="dot" onclick="scrollToSection(2)"></div>
+    <div class="dot" onclick="scrollToSection(3)"></div>
+    <div class="dot" onclick="scrollToSection(4)"></div>
+  </div>
+
+  <!-- ===== 第一屏：封面 ===== -->
+  <section class="hero" id="sec1">
+    <div class="hero-bg-1"></div>
+    <div class="hero-bg-2"></div>
+    <div class="hero-overlay"></div>
+    
+    <!-- 装饰粒子 -->
+    <div class="particles" id="particles"></div>
+
+    <!-- 祥云 SVG -->
+    <svg class="cloud-decoration tl" width="180" height="120" viewBox="0 0 180 120" fill="currentColor" style="color: var(--gold);">
+      <path d="M15,80 Q5,80 5,65 Q5,50 15,50 Q20,35 35,35 Q45,35 50,45 Q58,30 72,30 Q86,30 90,45 Q105,38 118,48 Q132,48 135,60 Q150,55 160,65 Q175,65 175,80 Q175,95 155,95 L15,95 Q5,95 5,80 Z"/>
+    </svg>
+    <svg class="cloud-decoration br" width="160" height="100" viewBox="0 0 160 100" fill="currentColor" style="color: var(--gold); transform: rotate(180deg);">
+      <path d="M12,70 Q4,70 4,58 Q4,45 12,45 Q16,32 30,32 Q40,32 44,42 Q52,30 64,30 Q76,30 80,42 Q92,36 104,44 Q116,44 118,54 Q130,50 140,58 Q154,58 154,70 Q154,82 138,82 L12,82 Q4,82 4,70 Z"/>
+    </svg>
+
+    <!-- 山峰剪影 -->
+    <svg class="mountain-silhouette" viewBox="0 0 400 120" preserveAspectRatio="none" fill="currentColor" style="color: var(--gold);">
+      <path d="M0,120 L0,90 Q30,70 50,85 Q70,60 100,75 Q120,40 150,60 Q170,30 200,50 Q220,20 250,45 Q270,35 300,55 Q320,25 350,45 Q370,35 400,50 L400,120 Z"/>
+    </svg>
+
+    <div class="hero-content">
+      <div class="seal-container">
+        <div class="seal-ring"></div>
+        <div class="seal-ring-2"></div>
+        <div class="seal">善</div>
+      </div>
+      <h1 class="main-title">九九同心会</h1>
+      <p class="sub-title">善和生态 · 立德同行</p>
+      <div class="divider">
+        <span class="divider-line"></span>
+        <span class="divider-dot"></span>
+        <span class="divider-diamond"></span>
+        <span class="divider-dot"></span>
+        <span class="divider-line"></span>
+      </div>
+      <p class="hero-quote">
+        <strong>大愿引领</strong> · 生态向善<br>
+        知行合一 · 共筑美好生态
+      </p>
+    </div>
+    <div class="scroll-hint">向下滑动</div>
+  </section>
+
+  <!-- ===== 第二屏：核心路径 ===== -->
+  <section class="section-about" id="sec2">
+    <div class="reveal">
+      <p class="section-label">CORE PATH</p>
+      <h2 class="section-title">核心路径</h2>
+
+      <div class="path-row">
+        <div class="path-card">
+          <span class="path-char">愿</span>
+          <span class="path-text">以愿启心</span>
+        </div>
+        <div class="path-card">
+          <span class="path-char">解</span>
+          <span class="path-text">以解明思</span>
+        </div>
+        <div class="path-card">
+          <span class="path-char">行</span>
+          <span class="path-text">以行落地</span>
+        </div>
+        <div class="path-card">
+          <span class="path-char">证</span>
+          <span class="path-text">以证圆满</span>
+        </div>
+      </div>
+
+      <div class="intro-card">
+        <h3>四维成长体系</h3>
+        <p>从发心立愿到智慧解悟，从躬身践行到实证收获，步步为营。这不仅是个人修身的次第，更是团队凝聚共识、锚定生态发展方向的根本遵循。</p>
+      </div>
+
+      <!-- 插图展示区 -->
+      <div class="illustration-cards">
+        <div class="illust-card">
+          <img src="assets/misty-mountain.jpg" alt="山水">
+          <div class="overlay">
+            <span class="label">山水意境</span>
+          </div>
+        </div>
+        <div class="illust-card">
+          <img src="assets/temple-view.jpg" alt="古刹">
+          <div class="overlay">
+            <span class="label">古刹禅意</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 第三屏：邀约语 ===== -->
+  <section class="section-invite" id="sec3">
+    <div class="reveal">
+      <span class="invite-badge">INVITATION</span>
+      <h2 class="section-title">诚邀参与</h2>
+
+      <div class="ornament">◆</div>
+
+      <p class="invite-main-text">
+        <span class="highlight">九九同心立德</span>，共建向善生态。<br><br>
+        我们诚挚邀请您参与本次活动，<br>
+        与各位同仁共赴这场心灵之约。<br><br>
+        愿初心如磐，行而不辍，<br>
+        <span class="highlight">共赴山海之约</span>。
+      </p>
+
+      <div class="ornament">◆</div>
+
+      <p class="quote-text">
+        「心修于内，德形于外，以修己之心安人，<br>
+        以成人之行达己」
+      </p>
+
+      <!-- 插图 -->
+      <div class="invite-illustration">
+        <img src="assets/pavilion-view.jpg" alt="亭台" class="invite-illust-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 第四屏：报名表单 ===== -->
+  <section class="section-form" id="sec4">
+    <div class="form-wrapper reveal" id="formSection">
+      <div class="form-header">
+        <h2>确认函</h2>
+        <p>请填写以下信息，以便我们为您安排</p>
+      </div>
+
+      <form id="inviteForm" onsubmit="handleSubmit(event)">
+        <div class="form-group" id="nameGroup">
+          <label class="form-label">您的姓名 <span class="req">*</span></label>
+          <input type="text" class="form-input" id="name" placeholder="请输入真实姓名">
+          <span class="error-msg">请输入您的姓名</span>
+        </div>
+
+        <div class="form-group" id="phoneGroup">
+          <label class="form-label">手机号码 <span class="req">*</span></label>
+          <input type="tel" class="form-input" id="phone" placeholder="请输入手机号码" maxlength="11">
+          <span class="error-msg">请输入正确的手机号码</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">所属组别</label>
+          <select class="form-input" id="group">
+            <option value="">请选择所属组别（可选）</option>
+            <option>策划与文案组</option>
+            <option>嘉宾邀请组</option>
+            <option>会务与场地组</option>
+            <option>宣传与媒体组</option>
+            <option>后勤供应组</option>
+            <option>财务管理组</option>
+            <option>技术保障组</option>
+            <option>综合服务组</option>
+            <option>书苑组 · 文化立心</option>
+            <option>生态圈组 · 共生共荣</option>
+            <option>项目组 · 落地深耕</option>
+            <option>德商组 · 商道崇德</option>
+            <option>中商研组</option>
+            <option>宝育弘泽组</option>
+            <option>一名通智组</option>
+            <option>其他</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">备注信息</label>
+          <textarea class="form-input" id="remark" placeholder="如有特殊需求或建议，请在此说明（可选）"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">确认参与</button>
+      </form>
+    </div>
+
+    <div id="successState" class="success-state">
+      <div class="success-card">
+        <div class="success-icon">✓</div>
+        <h3 class="success-title">报名成功</h3>
+        <p class="success-text">
+          感谢您的参与！<br>
+          我们已收到您的报名信息，<br>
+          期待与您共赴山海之约。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 底部 ===== -->
+  <footer class="footer">
+    <div class="footer-mountains"></div>
+    <div class="footer-logo">善和生态</div>
+    <p>九九同心立德 · 共建向善生态</p>
+    <p style="margin-top: 10px; opacity: 0.6;">心修于内，德形于外 · 以修己之心安人，以成人之行达己</p>
+  </footer>
+
+  <script>
+    // 创建粒子效果
+    const particlesEl = document.getElementById('particles');
+    
+    // 金色粒子
+    for (let i = 0; i < 25; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.animationDuration = (5 + Math.random() * 8) + 's';
+      p.style.animationDelay = Math.random() * 6 + 's';
+      p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
+      particlesEl.appendChild(p);
+    }
+    
+    // 落叶
+    for (let i = 0; i < 12; i++) {
+      const leaf = document.createElement('div');
+      leaf.className = 'leaf';
+      leaf.style.left = Math.random() * 100 + '%';
+      leaf.style.animationDuration = (8 + Math.random() * 10) + 's';
+      leaf.style.animationDelay = Math.random() * 8 + 's';
+      leaf.style.opacity = 0.3 + Math.random() * 0.3;
+      particlesEl.appendChild(leaf);
+    }
+
+    // 手机号校验
+    document.getElementById('phone').addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g, '');
+    });
+
+    // 滚动动画
+    const revealObserver = new IntersectionObserver((entries) {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // 分页指示器
+    const sections = document.querySelectorAll('section');
+    const dots = document.querySelectorAll('.dot');
+    const secObs = new IntersectionObserver((entries) {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = Array.from(sections).indexOf(e.target);
+          dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => secObs.observe(s));
+
+    // 点击页码跳转
+    function scrollToSection(index) {
+      sections[index].scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 表单提交
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      let ok = true;
+
+      document.getElementById('nameGroup').classList.remove('error');
+      document.getElementById('phoneGroup').classList.remove('error');
+
+      if (!name) { document.getElementById('nameGroup').classList.add('error'); ok = false; }
+      if (!/^1[3-9]\d{9}$/.test(phone)) { document.getElementById('phoneGroup').classList.add('error'); ok = false; }
+      if (!ok) return;
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = '提交中...';
+
+      setTimeout(() => {
+        console.log('报名信息：', {
+          name,
+          phone,
+          group: document.getElementById('group').value,
+          remark: document.getElementById('remark').value.trim(),
+          submitTime: new Date().toLocaleString('zh-CN')
+        });
+        document.getElementById('formSection').style.display = 'none';
+        document.getElementById('successState').style.display = 'block';
+      }, 800);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>善和生态九九立德同心会 · 邀请函</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+XiaoWei&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --red: #B8322A;
+      --deep-red: #7A1F1A;
+      --gold: #C9A96E;
+      --light-gold: #E8D5B0;
+      --ink: #2C2420;
+      --paper: #FAF6F0;
+      --cream: #F3EDE0;
+    }
+
+    body {
+      font-family: 'Noto Serif SC', 'SimSun', serif;
+      background: var(--paper);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ===== 第一屏：封面 ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(160deg, #1a0f0a 0%, #2d1f15 40%, #3d2b1f 100%);
+    }
+
+    /* 水墨山水背景 */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('assets/cover-landscape.jpg') center/cover no-repeat;
+      filter: brightness(0.35) saturate(0.6);
+      transform: scale(1.1);
+      animation: slowZoom 30s ease-in-out infinite alternate;
+    }
+
+    @keyframes slowZoom {
+      from { transform: scale(1.1); }
+      to { transform: scale(1.2); }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(180deg, rgba(30,15,10,0.4) 0%, rgba(30,15,10,0.1) 50%, rgba(30,15,10,0.7) 100%),
+        linear-gradient(135deg, rgba(184,50,42,0.1) 0%, transparent 60%);
+    }
+
+    /* 装饰粒子 */
+    .particles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { opacity: 0; transform: translateY(-20px) rotate(0deg); }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { opacity: 0; transform: translateY(100vh) rotate(360deg); }
+    }
+
+    /* 云纹装饰 SVG */
+    .cloud-deco {
+      position: absolute;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    .cloud-deco.top-left { top: 5%; left: -5%; }
+    .cloud-deco.bottom-right { bottom: 5%; right: -5%; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* 印章 logo */
+    .seal-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 28px;
+    }
+
+    .seal-ring {
+      position: absolute;
+      inset: -8px;
+      border: 1px solid rgba(201,169,110,0.4);
+      border-radius: 50%;
+      animation: ringPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes ringPulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.05); opacity: 0.2; }
+    }
+
+    .seal {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--red), var(--deep-red));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 42px;
+      color: #fff;
+      box-shadow: 0 0 40px rgba(201,169,110,0.3), inset 0 2px 10px rgba(0,0,0,0.2);
+      animation: sealAppear 0.8s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .seal::before {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+    }
+
+    @keyframes sealAppear {
+      from { opacity: 0; transform: scale(0.5) rotate(-15deg); }
+      to { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+
+    .main-title {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 40px;
+      color: #fff;
+      letter-spacing: 14px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+      margin-bottom: 12px;
+      animation: fadeUp 0.8s ease-out 0.2s both;
+    }
+
+    .sub-title {
+      font-size: 14px;
+      color: var(--gold);
+      letter-spacing: 6px;
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s ease-out 0.4s both;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 0 auto 24px;
+      animation: fadeUp 0.8s ease-out 0.5s both;
+    }
+
+    .divider-line {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .divider-diamond {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    .hero-quote {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      line-height: 2.2;
+      letter-spacing: 2px;
+      animation: fadeUp 0.8s ease-out 0.6s both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 滚动提示 */
+    .scroll-hint {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      letter-spacing: 3px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 30px;
+      background: linear-gradient(180deg, rgba(201,169,110,0.5), transparent);
+      margin: 8px auto 0;
+      animation: scrollLine 1.5s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(5px); }
+    }
+
+    @keyframes scrollLine {
+      0% { height: 0; opacity: 0; }
+      50% { height: 30px; opacity: 1; }
+      100% { height: 30px; opacity: 0; }
+    }
+
+    /* ===== 第二屏：活动介绍 ===== */
+    .section-about {
+      padding: 70px 24px;
+      background: var(--paper);
+      position: relative;
+    }
+
+    /* 山水背景装饰 */
+    .section-about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 180px;
+      background: url('assets/hero-landscape.jpg') center/cover no-repeat;
+      opacity: 0.06;
+      mask-image: linear-gradient(to bottom, black 40%, transparent);
+      -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent);
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 24px;
+      color: var(--red);
+      letter-spacing: 4px;
+      margin-bottom: 24px;
+    }
+
+    /* 路径卡片 */
+    .path-row {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 4px 0 16px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .path-row::-webkit-scrollbar { display: none; }
+
+    .path-card {
+      flex-shrink: 0;
+      width: 80px;
+      text-align: center;
+      padding: 16px 8px;
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid var(--light-gold);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: all 0.3s;
+    }
+
+    .path-card:active {
+      transform: scale(0.95);
+    }
+
+    .path-char {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 36px;
+      color: var(--red);
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .path-text {
+      font-size: 11px;
+      color: var(--ink);
+      opacity: 0.6;
+      line-height: 1.4;
+    }
+
+    /* 介绍卡片 */
+    .intro-card {
+      background: linear-gradient(135deg, var(--deep-red), var(--red));
+      color: #fff;
+      border-radius: 16px;
+      padding: 24px 20px;
+      margin-top: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-card::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 100px;
+      height: 100px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+
+    .intro-card::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      width: 60px;
+      height: 60px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+    }
+
+    .intro-card h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-card p {
+      font-size: 13px;
+      line-height: 1.9;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== 第三屏：邀约语 ===== */
+    .section-invite {
+      padding: 70px 24px;
+      background: var(--cream);
+      text-align: center;
+      position: relative;
+    }
+
+    .section-invite::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('assets/decor-2.jpg') center/cover no-repeat;
+      opacity: 0.04;
+    }
+
+    .invite-badge {
+      display: inline-block;
+      padding: 6px 20px;
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .invite-main-text {
+      font-size: 15px;
+      line-height: 2.4;
+      color: var(--ink);
+      position: relative;
+      z-index: 1;
+    }
+
+    .invite-main-text .highlight {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* 装饰分隔 */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 24px 0;
+      color: var(--gold);
+      font-size: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: '';
+      width: 50px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--light-gold), transparent);
+    }
+
+    .quote-text {
+      font-size: 12px;
+      color: #999;
+      font-style: italic;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== 第四屏：报名表单 ===== */
+    .section-form {
+      padding: 60px 24px 80px;
+      background: #fff;
+      position: relative;
+    }
+
+    .section-form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--red));
+    }
+
+    .form-wrapper {
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-header h2 {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 22px;
+      color: var(--red);
+      letter-spacing: 4px;
+      margin-bottom: 6px;
+    }
+
+    .form-header p {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      color: var(--ink);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-label .req {
+      color: var(--red);
+      margin-left: 2px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 15px 16px;
+      border: 1px solid #E8DDD0;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: inherit;
+      background: var(--paper);
+      color: var(--ink);
+      transition: all 0.3s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--red);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(184, 50, 42, 0.08);
+    }
+
+    .form-input::placeholder { color: #C4B9A8; }
+
+    select.form-input {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23B8322A' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 36px;
+    }
+
+    textarea.form-input { resize: vertical; min-height: 90px; }
+
+    .submit-btn {
+      width: 100%;
+      padding: 17px;
+      background: linear-gradient(135deg, var(--red), var(--deep-red));
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: inherit;
+      letter-spacing: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 16px rgba(184, 50, 42, 0.25);
+      margin-top: 6px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(184, 50, 42, 0.35);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .error-msg {
+      font-size: 12px;
+      color: var(--red);
+      margin-top: 5px;
+      display: none;
+    }
+
+    .form-group.error .form-input {
+      border-color: var(--red);
+      background: #FFF8F8;
+    }
+
+    .form-group.error .error-msg { display: block; }
+
+    /* 成功状态 */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .success-card {
+      background: linear-gradient(135deg, var(--deep-red), var(--red));
+      border-radius: 20px;
+      padding: 40px 28px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .success-card::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+
+    .success-icon {
+      width: 68px;
+      height: 68px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 30px;
+      animation: popIn 0.5s ease-out;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0) rotate(-180deg); }
+      80% { transform: scale(1.1) rotate(10deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+
+    .success-title {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 22px;
+      margin-bottom: 10px;
+      letter-spacing: 4px;
+    }
+
+    .success-text {
+      font-size: 13px;
+      opacity: 0.85;
+      line-height: 1.8;
+    }
+
+    /* ===== 底部 ===== */
+    .footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 50px 24px;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--red));
+    }
+
+    .footer-logo {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 22px;
+      color: var(--gold);
+      letter-spacing: 6px;
+      margin-bottom: 14px;
+    }
+
+    .footer p {
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    /* 侧边页码 */
+    .page-dots {
+      position: fixed;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 100;
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(184, 50, 42, 0.25);
+      transition: all 0.3s;
+    }
+
+    .dot.active {
+      background: var(--red);
+      height: 18px;
+      border-radius: 3px;
+    }
+
+    /* 滚动动画 */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- 侧边页码 -->
+  <div class="page-dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <!-- ===== 第一屏：封面 ===== -->
+  <section class="hero" id="sec1">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- 祥云装饰 -->
+    <svg class="cloud-deco top-left" width="220" height="140" viewBox="0 0 220 140" fill="currentColor" style="color: var(--gold);">
+      <path d="M20,100 Q5,100 5,85 Q5,70 20,70 Q25,55 40,55 Q50,55 55,65 Q65,50 80,50 Q95,50 100,65 Q115,55 130,65 Q145,65 150,80 Q165,75 175,85 Q195,85 195,100 Q195,115 175,115 L20,115 Q5,115 5,100 Z"/>
+    </svg>
+    <svg class="cloud-deco bottom-right" width="200" height="120" viewBox="0 0 200 120" fill="currentColor" style="color: var(--gold); transform: rotate(180deg);">
+      <path d="M15,90 Q5,90 5,78 Q5,65 15,65 Q20,52 35,52 Q45,52 48,62 Q58,48 72,48 Q86,48 90,60 Q105,52 118,62 Q132,62 135,75 Q150,70 160,80 Q178,80 178,95 Q178,110 158,110 L15,110 Q5,110 5,95 Z"/>
+    </svg>
+
+    <div class="hero-content">
+      <div class="seal-container">
+        <div class="seal-ring"></div>
+        <div class="seal">善</div>
+      </div>
+      <h1 class="main-title">九九同心会</h1>
+      <p class="sub-title">善和生态 · 立德同行</p>
+      <div class="divider">
+        <span class="divider-line"></span>
+        <span class="divider-diamond"></span>
+        <span class="divider-line"></span>
+      </div>
+      <p class="hero-quote">
+        大愿引领 · 生态向善<br>
+        知行合一 · 共筑美好生态
+      </p>
+    </div>
+    <div class="scroll-hint">向下滑动</div>
+  </section>
+
+  <!-- ===== 第二屏：核心路径 ===== -->
+  <section class="section-about" id="sec2">
+    <div class="reveal">
+      <p class="section-label">CORE PATH</p>
+      <h2 class="section-title">核心路径</h2>
+
+      <div class="path-row">
+        <div class="path-card">
+          <span class="path-char">愿</span>
+          <span class="path-text">以愿启心</span>
+        </div>
+        <div class="path-card">
+          <span class="path-char">解</span>
+          <span class="path-text">以解明思</span>
+        </div>
+        <div class="path-card">
+          <span class="path-char">行</span>
+          <span class="path-text">以行落地</span>
+        </div>
+        <div class="path-card">
+          <span class="path-char">证</span>
+          <span class="path-text">以证圆满</span>
+        </div>
+      </div>
+
+      <div class="intro-card">
+        <h3>四维成长体系</h3>
+        <p>从发心立愿到智慧解悟，从躬身践行到实证收获，步步为营。<br>
+        这不仅是个人修身的次第，更是团队凝聚共识、锚定生态发展方向的根本遵循。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 第三屏：邀约语 ===== -->
+  <section class="section-invite" id="sec3">
+    <div class="reveal">
+      <span class="invite-badge">INVITATION</span>
+      <h2 class="section-title">诚邀参与</h2>
+
+      <div class="ornament">◆</div>
+
+      <p class="invite-main-text">
+        <span class="highlight">九九同心立德</span>，共建向善生态。<br><br>
+        我们诚挚邀请您参与本次活动，<br>
+        与各位同仁共赴这场心灵之约。<br><br>
+        愿初心如磐，行而不辍，<br>
+        <span class="highlight">共赴山海之约</span>。
+      </p>
+
+      <div class="ornament">◆</div>
+
+      <p class="quote-text">
+        「心修于内，德形于外，以修己之心安人，以成人之行达己」
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 第四屏：报名表单 ===== -->
+  <section class="section-form" id="sec4">
+    <div class="form-wrapper reveal" id="formSection">
+      <div class="form-header">
+        <h2>确认函</h2>
+        <p>请填写以下信息，以便我们为您安排</p>
+      </div>
+
+      <form id="inviteForm" onsubmit="handleSubmit(event)">
+        <div class="form-group" id="nameGroup">
+          <label class="form-label">您的姓名 <span class="req">*</span></label>
+          <input type="text" class="form-input" id="name" placeholder="请输入真实姓名">
+          <span class="error-msg">请输入您的姓名</span>
+        </div>
+
+        <div class="form-group" id="phoneGroup">
+          <label class="form-label">手机号码 <span class="req">*</span></label>
+          <input type="tel" class="form-input" id="phone" placeholder="请输入手机号码" maxlength="11">
+          <span class="error-msg">请输入正确的手机号码</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">所属组别</label>
+          <select class="form-input" id="group">
+            <option value="">请选择所属组别（可选）</option>
+            <option>策划与文案组</option>
+            <option>嘉宾邀请组</option>
+            <option>会务与场地组</option>
+            <option>宣传与媒体组</option>
+            <option>后勤供应组</option>
+            <option>财务管理组</option>
+            <option>技术保障组</option>
+            <option>综合服务组</option>
+            <option>书苑组 · 文化立心</option>
+            <option>生态圈组 · 共生共荣</option>
+            <option>项目组 · 落地深耕</option>
+            <option>德商组 · 商道崇德</option>
+            <option>中商研组</option>
+            <option>宝育弘泽组</option>
+            <option>一名通智组</option>
+            <option>其他</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">备注信息</label>
+          <textarea class="form-input" id="remark" placeholder="如有特殊需求或建议，请在此说明（可选）"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">确认参与</button>
+      </form>
+    </div>
+
+    <div id="successState" class="success-state">
+      <div class="success-card">
+        <div class="success-icon">✓</div>
+        <h3 class="success-title">报名成功</h3>
+        <p class="success-text">
+          感谢您的参与！<br>
+          我们已收到您的报名信息，<br>
+          期待与您共赴山海之约。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 底部 ===== -->
+  <footer class="footer">
+    <div class="footer-logo">善和生态</div>
+    <p>九九同心立德 · 共建向善生态</p>
+    <p style="margin-top: 8px; opacity: 0.6;">心修于内，德形于外 · 以修己之心安人，以成人之行达己</p>
+  </footer>
+
+  <script>
+    // 飘浮粒子
+    const particlesEl = document.getElementById('particles');
+    for (let i = 0; i < 20; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.animationDuration = (4 + Math.random() * 6) + 's';
+      p.style.animationDelay = Math.random() * 5 + 's';
+      p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
+      particlesEl.appendChild(p);
+    }
+
+    // 手机号校验
+    document.getElementById('phone').addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g, '');
+    });
+
+    // 滚动动画
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // 分页指示器
+    const sections = document.querySelectorAll('section');
+    const dots = document.querySelectorAll('.dot');
+    const secObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = Array.from(sections).indexOf(e.target);
+          dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => secObs.observe(s));
+
+    // 表单提交
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      let ok = true;
+
+      document.getElementById('nameGroup').classList.remove('error');
+      document.getElementById('phoneGroup').classList.remove('error');
+
+      if (!name) { document.getElementById('nameGroup').classList.add('error'); ok = false; }
+      if (!/^1[3-9]\d{9}$/.test(phone)) { document.getElementById('phoneGroup').classList.add('error'); ok = false; }
+      if (!ok) return;
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = '提交中...';
+
+      setTimeout(() => {
+        console.log('报名信息：', {
+          name,
+          phone,
+          group: document.getElementById('group').value,
+          remark: document.getElementById('remark').value.trim(),
+          submitTime: new Date().toLocaleString('zh-CN')
+        });
+        document.getElementById('formSection').style.display = 'none';
+        document.getElementById('successState').style.display = 'block';
+      }, 800);
+    }
+  </script>
+</body>
+</html>

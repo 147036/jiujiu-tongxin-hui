@@ -1,0 +1,14 @@
+{
+  "name": "jjiu-invitation-backend",
+  "version": "1.0.0",
+  "description": "九九同心会报名表单后端",
+  "main": "api/submit.js",
+  "scripts": {
+    "dev": "node backend/server.js",
+    "start": "node backend/server.js"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

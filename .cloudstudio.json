@@ -1,0 +1,6 @@
+{
+  "buildCommand": "",
+  "framework": "nodejs",
+  "outputDir": ".",
+  "nodeVersion": "22.22.2"
+}
