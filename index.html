@@ -505,10 +505,13 @@
 
     /* 正文滚动入场动效 */
     .section-block {
-      opacity: 0; transform: translateY(38px);
+      opacity: 1; transform: none;
       transition: opacity .85s ease, transform .85s ease;
     }
-    .section-block.in-view { opacity: 1; transform: none; }
+    .section-block.animate-in {
+      opacity: 0; transform: translateY(38px);
+    }
+    .section-block.animate-in.in-view { opacity: 1; transform: none; }
     .section-block .section-label,
     .section-block .section-title,
     .section-block .deco-line-row,
@@ -518,33 +521,44 @@
     .section-block .quote-text,
     .section-block .event-info-row,
     .section-block .form-wrapper {
-      opacity: 0; transform: translateY(22px);
+      opacity: 1; transform: none;
       transition: opacity .7s ease, transform .7s ease, box-shadow .3s ease;
     }
-    .section-block.in-view .section-label,
-    .section-block.in-view .section-title,
-    .section-block.in-view .deco-line-row,
-    .section-block.in-view .path-card,
-    .section-block.in-view .intro-card,
-    .section-block.in-view .invite-text,
-    .section-block.in-view .quote-text,
-    .section-block.in-view .event-info-row,
-    .section-block.in-view .form-wrapper { opacity: 1; transform: none; }
+    .section-block.animate-in .section-label,
+    .section-block.animate-in .section-title,
+    .section-block.animate-in .deco-line-row,
+    .section-block.animate-in .path-card,
+    .section-block.animate-in .intro-card,
+    .section-block.animate-in .invite-text,
+    .section-block.animate-in .quote-text,
+    .section-block.animate-in .event-info-row,
+    .section-block.animate-in .form-wrapper {
+      opacity: 0; transform: translateY(22px);
+    }
+    .section-block.animate-in.in-view .section-label,
+    .section-block.animate-in.in-view .section-title,
+    .section-block.animate-in.in-view .deco-line-row,
+    .section-block.animate-in.in-view .path-card,
+    .section-block.animate-in.in-view .intro-card,
+    .section-block.animate-in.in-view .invite-text,
+    .section-block.animate-in.in-view .quote-text,
+    .section-block.animate-in.in-view .event-info-row,
+    .section-block.animate-in.in-view .form-wrapper { opacity: 1; transform: none; }
     /* 子元素依次延迟，形成 stagger */
-    .section-block.in-view .section-title { transition-delay: .1s; }
-    .section-block.in-view .deco-line-row { transition-delay: .18s; }
-    .section-block.in-view .path-card:nth-child(1) { transition-delay: .26s; }
-    .section-block.in-view .path-card:nth-child(2) { transition-delay: .34s; }
-    .section-block.in-view .path-card:nth-child(3) { transition-delay: .42s; }
-    .section-block.in-view .path-card:nth-child(4) { transition-delay: .5s; }
-    .section-block.in-view .intro-card { transition-delay: .55s; }
-    .section-block.in-view .invite-text { transition-delay: .14s; }
-    .section-block.in-view .quote-text { transition-delay: .3s; }
-    .section-block.in-view .event-info-row:nth-child(odd) { transition-delay: .2s; }
-    .section-block.in-view .event-info-row:nth-child(even) { transition-delay: .32s; }
-    .section-block.in-view .form-wrapper { transition-delay: .12s; }
+    .section-block.animate-in.in-view .section-title { transition-delay: .1s; }
+    .section-block.animate-in.in-view .deco-line-row { transition-delay: .18s; }
+    .section-block.animate-in.in-view .path-card:nth-child(1) { transition-delay: .26s; }
+    .section-block.animate-in.in-view .path-card:nth-child(2) { transition-delay: .34s; }
+    .section-block.animate-in.in-view .path-card:nth-child(3) { transition-delay: .42s; }
+    .section-block.animate-in.in-view .path-card:nth-child(4) { transition-delay: .5s; }
+    .section-block.animate-in.in-view .intro-card { transition-delay: .55s; }
+    .section-block.animate-in.in-view .invite-text { transition-delay: .14s; }
+    .section-block.animate-in.in-view .quote-text { transition-delay: .3s; }
+    .section-block.animate-in.in-view .event-info-row:nth-child(odd) { transition-delay: .2s; }
+    .section-block.animate-in.in-view .event-info-row:nth-child(even) { transition-delay: .32s; }
+    .section-block.animate-in.in-view .form-wrapper { transition-delay: .12s; }
     /* 卡片悬停微动 */
-    .section-block.in-view .path-card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0,0,0,.18); }
+    .section-block.animate-in.in-view .path-card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0,0,0,.18); }
   </style>
 </head>
 <body>
@@ -931,6 +945,9 @@
 
     // 正文滚动入场动效（IntersectionObserver + scroll 兜底，防空白且保留滚动动画）
     const blocks = document.querySelectorAll('.section-block');
+    // 先给所有section-block添加animate-in类，但保持可见
+    blocks.forEach(b => b.classList.add('animate-in'));
+    
     function revealBlock(b) {
       const r = b.getBoundingClientRect();
       if (r.top < window.innerHeight * 0.85) b.classList.add('in-view');
@@ -946,6 +963,7 @@
     }
     window.addEventListener('scroll', checkReveal, { passive: true });
     window.addEventListener('load', checkReveal);
+    // 页面加载后立即触发显示
     checkReveal();
 
     // 手机号校验
