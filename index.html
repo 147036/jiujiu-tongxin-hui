@@ -51,16 +51,6 @@
       opacity: 0.35;
       z-index: 0;
     }
-    .hero-shimmer {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
-      animation: shimmer 8s ease-in-out infinite;
-      z-index: 1;
-    }
-    @keyframes shimmer {
-      0%, 100% { transform: translateX(-100%); }
-      50% { transform: translateX(100%); }
-    }
 
     /* 多层山峦 SVG */
     .mountain-layer {
@@ -197,6 +187,33 @@
       padding: 55px 20px;
       position: relative;
       overflow: hidden;
+      /* 确保内容可见 */
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    /* 滚动入场动画（仅用于节入场效果） */
+    .section-block.animate-in {
+      opacity: 0;
+      transform: translateY(38px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+    .section-block.animate-in.in-view {
+      opacity: 1;
+      transform: none;
+    }
+    /* 子元素依次延迟入场 */
+    .section-block.in-view .section-label,
+    .section-block.in-view .section-title,
+    .section-block.in-view .deco-line-row,
+    .section-block.in-view .path-card,
+    .section-block.in-view .intro-card,
+    .section-block.in-view .invite-text,
+    .section-block.in-view .quote-text,
+    .section-block.in-view .event-info-row,
+    .section-block.in-view .form-wrapper {
+      opacity: 1 !important;
+      transform: none !important;
     }
 
     .section-label {
@@ -518,52 +535,6 @@
       from { opacity: 0; transform: translateY(26px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    /* 正文滚动入场动效 */
-    .section-block {
-      opacity: 1; transform: none;
-      transition: opacity .85s ease, transform .85s ease;
-    }
-    .section-block.animate-in {
-      opacity: 0; transform: translateY(38px);
-    }
-    .section-block.animate-in.in-view { opacity: 1; transform: none; }
-    .section-block .section-label,
-    .section-block .section-title,
-    .section-block .deco-line-row,
-    .section-block .path-card,
-    .section-block .intro-card,
-    .section-block .invite-text,
-    .section-block .quote-text,
-    .section-block .event-info-row,
-    .section-block .form-wrapper {
-      opacity: 0; transform: translateY(22px);
-      transition: opacity .7s ease, transform .7s ease, box-shadow .3s ease;
-    }
-    .section-block.in-view .section-label,
-    .section-block.in-view .section-title,
-    .section-block.in-view .deco-line-row,
-    .section-block.in-view .path-card,
-    .section-block.in-view .intro-card,
-    .section-block.in-view .invite-text,
-    .section-block.in-view .quote-text,
-    .section-block.in-view .event-info-row,
-    .section-block.in-view .form-wrapper { opacity: 1; transform: none; }
-    /* 子元素依次延迟，形成 stagger */
-    .section-block.in-view .section-title { transition-delay: .1s; }
-    .section-block.in-view .deco-line-row { transition-delay: .18s; }
-    .section-block.in-view .path-card:nth-child(1) { transition-delay: .26s; }
-    .section-block.in-view .path-card:nth-child(2) { transition-delay: .34s; }
-    .section-block.in-view .path-card:nth-child(3) { transition-delay: .42s; }
-    .section-block.in-view .path-card:nth-child(4) { transition-delay: .5s; }
-    .section-block.in-view .intro-card { transition-delay: .55s; }
-    .section-block.in-view .invite-text { transition-delay: .14s; }
-    .section-block.in-view .quote-text { transition-delay: .3s; }
-    .section-block.in-view .event-info-row:nth-child(odd) { transition-delay: .2s; }
-    .section-block.in-view .event-info-row:nth-child(even) { transition-delay: .32s; }
-    .section-block.in-view .form-wrapper { transition-delay: .12s; }
-    /* 卡片悬停微动 */
-    .section-block.in-view .path-card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0,0,0,.18); }
   </style>
 </head>
 <body>
@@ -667,7 +638,6 @@
   <!-- ===== 第一屏：封面 ===== -->
   <section class="hero" id="sec1">
     <div class="hero-bg"></div>
-    <div class="hero-shimmer"></div>
     <!-- 三层山峦 -->
     <svg class="mountain-layer mountain-far" viewBox="0 0 400 200" preserveAspectRatio="none" style="position:absolute;bottom:0;left:0;right:0;height:50%;opacity:0.18;">
       <path d="M0,200 L0,120 Q30,90 60,110 Q90,70 120,95 Q150,55 180,80 Q210,45 240,70 Q270,50 300,75 Q330,55 360,80 Q380,70 400,90 L400,200 Z" fill="#C9A96E"/>
@@ -831,7 +801,7 @@
 
   <!-- ===== 第四屏：报名表单 ===== -->
   <section class="section-block section-form" id="sec4">
-    <div class="form-wrapper" id="formSection">
+    <div class="form-wrapper">
       <div class="form-header">
         <h2>确认函</h2>
         <p>请填写以下信息，以便我们为您安排</p>
@@ -848,8 +818,7 @@
       </div>
 
       <!-- 报名表单 -->
-      <div class="form-wrapper" id="formSection">
-        <form id="inviteForm" action="/api/submit" method="POST">
+      <form id="inviteForm" action="/api/submit" method="POST">
           <div class="form-group" id="nameGroup">
             <label class="form-label">您的姓名 <span class="req">*</span></label>
             <input type="text" class="form-input" name="name" id="name" placeholder="请输入真实姓名">
@@ -886,27 +855,37 @@
           </div>
 
           <div class="form-group">
+            <label class="form-label">活动服装尺码 <span class="req">*</span></label>
+            <select class="form-input" name="clothing_size" id="clothingSize">
+              <option value="">请选择尺码（必填）</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+              <option>XXL</option>
+              <option>XXXL</option>
+            </select>
+          </div>
+
+          <div class="form-group">
             <label class="form-label">备注信息</label>
             <textarea class="form-input" name="remark" id="remark" placeholder="如有特殊需求或建议，请在此说明（可选）"></textarea>
           </div>
 
           <button type="submit" class="submit-btn" id="submitBtn">确认参与</button>
         </form>
-      </div>
-
-      <div id="successState" class="success-state">
-        <div class="success-card">
-          <div class="success-icon">✓</div>
-          <h3 class="success-title">报名成功</h3>
-          <p class="success-text">
-            感谢您的参与！<br>
-            我们已收到您的报名信息，<br>
-            期待与您共赴山海之约。
-          </p>
+        <div id="successState" class="success-state">
+          <div class="success-card">
+            <div class="success-icon">✓</div>
+            <h3 class="success-title">报名成功</h3>
+            <p class="success-text">
+              感谢您的参与！<br>
+              我们已收到您的报名信息，<br>
+              期待与您共赴山海之约。
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-
   </section>
 
   <!-- ===== 底部 ===== -->
@@ -951,26 +930,17 @@
       sections[index].scrollIntoView({ behavior: 'smooth' });
     }
 
-    // 正文滚动入场动效（IntersectionObserver + scroll 兜底，防空白且保留滚动动画）
+    // 正文滚动入场动效
     const blocks = document.querySelectorAll('.section-block');
-    // 先给所有section-block添加animate-in类，但保持可见
-    blocks.forEach(b => b.classList.add('animate-in'));
-    function revealBlock(b) {
-      const r = b.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.85) b.classList.add('in-view');
-    }
-    function checkReveal() { blocks.forEach(revealBlock); }
-    if ('IntersectionObserver' in window) {
-      const revObs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add('in-view'); revObs.unobserve(e.target); }
-        });
-      }, { threshold: 0.15 });
-      blocks.forEach(b => revObs.observe(b));
-    }
-    window.addEventListener('scroll', checkReveal, { passive: true });
-    window.addEventListener('load', checkReveal);
-    checkReveal();
+    // 页面加载后立即可见，不依赖动画
+    blocks.forEach(b => b.classList.add('in-view'));
+    window.addEventListener('scroll', () => {
+      blocks.forEach(b => {
+        const r = b.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.85) b.classList.add('in-view');
+      });
+    }, { passive: true });
+    window.addEventListener('load', () => blocks.forEach(b => b.classList.add('in-view')));
 
     // 手机号校验
     const phoneEl = document.getElementById('phone');
@@ -980,7 +950,7 @@
       });
     }
 
-    // 表单提交：发送到后端API
+    // 表单提交
     const inviteForm = document.getElementById('inviteForm');
     const successState = document.getElementById('successState');
     if (inviteForm && successState) {
@@ -989,53 +959,20 @@
         const name = document.getElementById('name').value.trim();
         const phone = document.getElementById('phone').value.trim();
         const group = document.getElementById('group').value;
+        const clothingSize = document.getElementById('clothingSize').value;
         const remark = document.getElementById('remark').value.trim();
         if (!name) { alert('请输入您的姓名'); return; }
         if (!/^1\d{10}$/.test(phone)) { alert('请输入正确的手机号码'); return; }
+        if (!clothingSize) { alert('请选择活动服装尺码'); return; }
         // 发送到后端API
         fetch('/api/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, phone, group, remark })
+          body: JSON.stringify({ name, phone, group, clothingSize, remark })
         })
         .then(res => res.json())
         .then(() => {
-          document.getElementById('formSection').style.display = 'none';
-          successState.style.display = 'block';
-        })
-        .catch(() => {
-          alert('提交失败，请稍后重试');
-        });
-      });
-    }
-    const phoneEl = document.getElementById('phone');
-    if (phoneEl) {
-      phoneEl.addEventListener('input', function() {
-        this.value = this.value.replace(/\D/g, '');
-      });
-    }
-
-    // 表单提交：发送到后端API，页面内显示成功
-    const inviteForm = document.getElementById('inviteForm');
-    const successState = document.getElementById('successState');
-    if (inviteForm && successState) {
-      inviteForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const group = document.getElementById('group').value;
-        const remark = document.getElementById('remark').value.trim();
-        if (!name) { alert('请输入您的姓名'); return; }
-        if (!/^1\d{10}$/.test(phone)) { alert('请输入正确的手机号码'); return; }
-        // 发送到后端API
-        fetch('/api/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, phone, group, remark })
-        })
-        .then(res => res.json())
-        .then(() => {
-          document.getElementById('formSection').style.display = 'none';
+          document.getElementById('inviteForm').style.display = 'none';
           successState.style.display = 'block';
         })
         .catch(() => {
