@@ -972,6 +972,3 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, phone, group, remark })
-        })
-        .then(res => res.json())
-        .then(() => {
