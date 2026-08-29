@@ -885,6 +885,10 @@
             </p>
           </div>
         </div>
+        <!-- 飞书表单 iframe -->
+        <div id="larkFormContainer" class="lark-form-container" style="display:none;">
+          <iframe src="https://ncn9ozjd2lt6.feishu.cn/base/LAmbbGBd2aYmxws9PUTc1zs6nfd?tableId=tbllo4DtKVozriyxo&view=vewgXs81FR" width="100%" height="600" frameborder="0"></iframe>
+        </div>
       </div>
   </section>
 
@@ -950,11 +954,12 @@
       });
     }
 
-    // 表单提交 - 调用后端 API 提交到飞书
+    // 表单提交 - 显示飞书表单 iframe
     const inviteForm = document.getElementById('inviteForm');
     const successState = document.getElementById('successState');
+    const larkFormContainer = document.getElementById('larkFormContainer');
     if (inviteForm && successState) {
-      inviteForm.addEventListener('submit', async function(e) {
+      inviteForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const name = document.getElementById('name').value.trim();
         const phone = document.getElementById('phone').value.trim();
@@ -964,31 +969,12 @@
         if (!name) { alert('请输入您的姓名'); return; }
         if (!/^1\d{10}$/.test(phone)) { alert('请输入正确的手机号码'); return; }
         if (!clothingSize) { alert('请选择活动服装尺码'); return; }
-        // 显示加载中
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.disabled = true;
-        submitBtn.textContent = '提交中...';
-        try {
-          const res = await fetch('/api/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, phone, group, clothingSize, remark })
-          });
-          const data = await res.json();
-          if (data.success) {
-            // 提交成功，显示成功页面
-            document.getElementById('inviteForm').style.display = 'none';
-            successState.style.display = 'block';
-            successState.classList.add('animate-in', 'in-view');
-          } else {
-            throw new Error(data.error || '提交失败');
-          }
-        } catch (err) {
-          alert('提交失败：' + err.message + '\n请稍后重试');
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.textContent = '确认参与';
-        }
+        // 隐藏表单，显示飞书表单
+        document.getElementById('inviteForm').style.display = 'none';
+        document.getElementById('successState').style.display = 'none';
+        larkFormContainer.style.display = 'block';
+        // 滚动到表单位置
+        larkFormContainer.scrollIntoView({ behavior: 'smooth' });
       });
     }
   </script>
