@@ -7,8 +7,8 @@
   <!-- 微信分享预览图 -->
   <meta property="og:title" content="善和生态九九立德同心会 · 邀请函" />
   <meta property="og:description" content="大愿引领，生态向善。诚邀您参与九九同心会，共赴山海之约。" />
-  <meta property="og:image" content="https://7c2e73dea0b54e9bbb367bd6576969a2.app.workbuddy.link/preview.jpg" />
-  <meta property="og:url" content="https://7c2e73dea0b54e9bbb367bd6576969a2.app.workbuddy.link/invitation-v8.html" />
+  <meta property="og:image" content="https://2bf2f80062224c91ab0a8732ebd59268.app.workbuddy.link/preview.jpg" />
+  <meta property="og:url" content="https://2bf2f80062224c91ab0a8732ebd59268.app.workbuddy.link/invitation-v8.html" />
   <meta property="og:type" content="website" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=ZCOOL+XiaoWei&display=swap');
@@ -44,6 +44,22 @@
       justify-content: center;
       overflow: hidden;
       background: linear-gradient(160deg, #1a0f0a 0%, #2d1f15 40%, #3d2b1f 100%);
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('assets/hero-bg-full.jpg') center/cover no-repeat;
+      opacity: 0.35;
+      z-index: 0;
+    }
+    .hero-shimmer {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+      animation: shimmer 8s ease-in-out infinite;
+      z-index: 1;
+    }
+    @keyframes shimmer {
+      0%, 100% { transform: translateX(-100%); }
+      50% { transform: translateX(100%); }
     }
 
     /* 多层山峦 SVG */
@@ -505,13 +521,10 @@
 
     /* 正文滚动入场动效 */
     .section-block {
-      opacity: 1; transform: none;
+      opacity: 0; transform: translateY(38px);
       transition: opacity .85s ease, transform .85s ease;
     }
-    .section-block.animate-in {
-      opacity: 0; transform: translateY(38px);
-    }
-    .section-block.animate-in.in-view { opacity: 1; transform: none; }
+    .section-block.in-view { opacity: 1; transform: none; }
     .section-block .section-label,
     .section-block .section-title,
     .section-block .deco-line-row,
@@ -521,44 +534,33 @@
     .section-block .quote-text,
     .section-block .event-info-row,
     .section-block .form-wrapper {
-      opacity: 1; transform: none;
+      opacity: 0; transform: translateY(22px);
       transition: opacity .7s ease, transform .7s ease, box-shadow .3s ease;
     }
-    .section-block.animate-in .section-label,
-    .section-block.animate-in .section-title,
-    .section-block.animate-in .deco-line-row,
-    .section-block.animate-in .path-card,
-    .section-block.animate-in .intro-card,
-    .section-block.animate-in .invite-text,
-    .section-block.animate-in .quote-text,
-    .section-block.animate-in .event-info-row,
-    .section-block.animate-in .form-wrapper {
-      opacity: 0; transform: translateY(22px);
-    }
-    .section-block.animate-in.in-view .section-label,
-    .section-block.animate-in.in-view .section-title,
-    .section-block.animate-in.in-view .deco-line-row,
-    .section-block.animate-in.in-view .path-card,
-    .section-block.animate-in.in-view .intro-card,
-    .section-block.animate-in.in-view .invite-text,
-    .section-block.animate-in.in-view .quote-text,
-    .section-block.animate-in.in-view .event-info-row,
-    .section-block.animate-in.in-view .form-wrapper { opacity: 1; transform: none; }
+    .section-block.in-view .section-label,
+    .section-block.in-view .section-title,
+    .section-block.in-view .deco-line-row,
+    .section-block.in-view .path-card,
+    .section-block.in-view .intro-card,
+    .section-block.in-view .invite-text,
+    .section-block.in-view .quote-text,
+    .section-block.in-view .event-info-row,
+    .section-block.in-view .form-wrapper { opacity: 1; transform: none; }
     /* 子元素依次延迟，形成 stagger */
-    .section-block.animate-in.in-view .section-title { transition-delay: .1s; }
-    .section-block.animate-in.in-view .deco-line-row { transition-delay: .18s; }
-    .section-block.animate-in.in-view .path-card:nth-child(1) { transition-delay: .26s; }
-    .section-block.animate-in.in-view .path-card:nth-child(2) { transition-delay: .34s; }
-    .section-block.animate-in.in-view .path-card:nth-child(3) { transition-delay: .42s; }
-    .section-block.animate-in.in-view .path-card:nth-child(4) { transition-delay: .5s; }
-    .section-block.animate-in.in-view .intro-card { transition-delay: .55s; }
-    .section-block.animate-in.in-view .invite-text { transition-delay: .14s; }
-    .section-block.animate-in.in-view .quote-text { transition-delay: .3s; }
-    .section-block.animate-in.in-view .event-info-row:nth-child(odd) { transition-delay: .2s; }
-    .section-block.animate-in.in-view .event-info-row:nth-child(even) { transition-delay: .32s; }
-    .section-block.animate-in.in-view .form-wrapper { transition-delay: .12s; }
+    .section-block.in-view .section-title { transition-delay: .1s; }
+    .section-block.in-view .deco-line-row { transition-delay: .18s; }
+    .section-block.in-view .path-card:nth-child(1) { transition-delay: .26s; }
+    .section-block.in-view .path-card:nth-child(2) { transition-delay: .34s; }
+    .section-block.in-view .path-card:nth-child(3) { transition-delay: .42s; }
+    .section-block.in-view .path-card:nth-child(4) { transition-delay: .5s; }
+    .section-block.in-view .intro-card { transition-delay: .55s; }
+    .section-block.in-view .invite-text { transition-delay: .14s; }
+    .section-block.in-view .quote-text { transition-delay: .3s; }
+    .section-block.in-view .event-info-row:nth-child(odd) { transition-delay: .2s; }
+    .section-block.in-view .event-info-row:nth-child(even) { transition-delay: .32s; }
+    .section-block.in-view .form-wrapper { transition-delay: .12s; }
     /* 卡片悬停微动 */
-    .section-block.animate-in.in-view .path-card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0,0,0,.18); }
+    .section-block.in-view .path-card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0,0,0,.18); }
   </style>
 </head>
 <body>
@@ -661,6 +663,8 @@
 
   <!-- ===== 第一屏：封面 ===== -->
   <section class="hero" id="sec1">
+    <div class="hero-bg"></div>
+    <div class="hero-shimmer"></div>
     <!-- 三层山峦 -->
     <svg class="mountain-layer mountain-far" viewBox="0 0 400 200" preserveAspectRatio="none" style="position:absolute;bottom:0;left:0;right:0;height:50%;opacity:0.18;">
       <path d="M0,200 L0,120 Q30,90 60,110 Q90,70 120,95 Q150,55 180,80 Q210,45 240,70 Q270,50 300,75 Q330,55 360,80 Q380,70 400,90 L400,200 Z" fill="#C9A96E"/>
@@ -841,7 +845,8 @@
       </div>
 
       <!-- 报名表单 -->
-      <form id="inviteForm" action="/api/submit" method="POST">
+      <div class="form-wrapper" id="formSection">
+        <form id="inviteForm" action="/api/submit" method="POST">
           <div class="form-group" id="nameGroup">
             <label class="form-label">您的姓名 <span class="req">*</span></label>
             <input type="text" class="form-input" name="name" id="name" placeholder="请输入真实姓名">
@@ -945,9 +950,6 @@
 
     // 正文滚动入场动效（IntersectionObserver + scroll 兜底，防空白且保留滚动动画）
     const blocks = document.querySelectorAll('.section-block');
-    // 先给所有section-block添加animate-in类，但保持可见
-    blocks.forEach(b => b.classList.add('animate-in'));
-    
     function revealBlock(b) {
       const r = b.getBoundingClientRect();
       if (r.top < window.innerHeight * 0.85) b.classList.add('in-view');
@@ -963,7 +965,6 @@
     }
     window.addEventListener('scroll', checkReveal, { passive: true });
     window.addEventListener('load', checkReveal);
-    // 页面加载后立即触发显示
     checkReveal();
 
     // 手机号校验
@@ -1008,3 +1009,35 @@
         this.value = this.value.replace(/\D/g, '');
       });
     }
+
+    // 表单提交：发送到后端API，页面内显示成功
+    const inviteForm = document.getElementById('inviteForm');
+    const successState = document.getElementById('successState');
+    if (inviteForm && successState) {
+      inviteForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const group = document.getElementById('group').value;
+        const remark = document.getElementById('remark').value.trim();
+        if (!name) { alert('请输入您的姓名'); return; }
+        if (!/^1\d{10}$/.test(phone)) { alert('请输入正确的手机号码'); return; }
+        // 发送到后端API
+        fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, phone, group, remark })
+        })
+        .then(res => res.json())
+        .then(() => {
+          document.getElementById('formSection').style.display = 'none';
+          successState.style.display = 'block';
+        })
+        .catch(() => {
+          alert('提交失败，请稍后重试');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
