@@ -47,7 +47,7 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('assets/hero-bg-full.jpg') center/cover no-repeat;
+      background: url('assets/hero-bg-ai.jpg') center/cover no-repeat;
       opacity: 0.35;
       z-index: 0;
     }
@@ -521,10 +521,13 @@
 
     /* 正文滚动入场动效 */
     .section-block {
-      opacity: 0; transform: translateY(38px);
+      opacity: 1; transform: none;
       transition: opacity .85s ease, transform .85s ease;
     }
-    .section-block.in-view { opacity: 1; transform: none; }
+    .section-block.animate-in {
+      opacity: 0; transform: translateY(38px);
+    }
+    .section-block.animate-in.in-view { opacity: 1; transform: none; }
     .section-block .section-label,
     .section-block .section-title,
     .section-block .deco-line-row,
@@ -950,6 +953,8 @@
 
     // 正文滚动入场动效（IntersectionObserver + scroll 兜底，防空白且保留滚动动画）
     const blocks = document.querySelectorAll('.section-block');
+    // 先给所有section-block添加animate-in类，但保持可见
+    blocks.forEach(b => b.classList.add('animate-in'));
     function revealBlock(b) {
       const r = b.getBoundingClientRect();
       if (r.top < window.innerHeight * 0.85) b.classList.add('in-view');
