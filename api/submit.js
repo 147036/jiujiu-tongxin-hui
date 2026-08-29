@@ -20,14 +20,18 @@ export default async function handler(req, res) {
   try {
     const data = req.body;
     
-    // 获取临时 Token
+    // 获取临时 Token（从环境变量读取）
+    const appId = process.env.FEISHU_APP_ID;
+    const appSecret = process.env.FEISHU_APP_SECRET;
+    
+    if (!appId || !appSecret) {
+      return res.status(500).json({ error: '飞书凭证未配置' });
+    }
+
     const tokenRes = await fetch('https://open.feishu.cn/open-apis/auth/v3/app_access_token/internal', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        app_id: process.env.FEISHU_APP_ID,
-        app_secret: process.env.FEISHU_APP_SECRET
-      })
+      body: JSON.stringify({ app_id: appId, app_secret: appSecret })
     });
     const tokenData = await tokenRes.json();
     const accessToken = tokenData.app_access_token;
